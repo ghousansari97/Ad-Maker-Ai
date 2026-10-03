@@ -1,3 +1,4 @@
+
 workflows:
   android-debug:
     name: AdMaker AI Android Build
@@ -9,12 +10,14 @@ workflows:
     scripts:
       - name: Extract AdMaker AI project
         script: |
-          unzip -o AdMaker_AI_MVP_v0.1.zip -d .
+          unzip -o AdMaker_AI_MVP_v0.1.zip
+          cd AdMaker_AI_MVP_v0.1
           flutter pub get
 
       - name: Build Android APK
         script: |
+          cd AdMaker_AI_MVP_v0.1
           flutter build apk --debug
 
     artifacts:
-      - build/app/outputs/flutter-apk/app-debug.apk
+      - AdMaker_AI_MVP_v0.1/build/app/outputs/flutter-apk/app-debug.apk
